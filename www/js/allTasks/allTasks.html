@@ -1,0 +1,11 @@
+<ion-view view-title="All Tasks">
+  <ion-content >
+    <ion-list>
+      <ion-item ng-repeat="task in allTasks.tasks | orderBy: 'title' | orderBy: '-isCompleted'">
+        <span ng-bind="task.title" ng-class="{'striked': task.isCompleted}"></span>
+        <ion-option-button class="button-positive" ng-if="!task.isCompleted" ng-click="allTasks.toggleTask(task)">Complete</ion-option-button>
+        <ion-option-button class="button-energized" ng-if="task.isCompleted" ng-click="allTasks.toggleTask(task)">Repopen</ion-option-button>
+      </ion-item>
+  </ion-list>
+  </ion-content>
+</ion-view>
